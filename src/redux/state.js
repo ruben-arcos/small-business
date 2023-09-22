@@ -1,5 +1,5 @@
 const initialState = {
-  businesses: [
+  taquerias: [
     {
       id: 1,
       name: "El Si Hay",
