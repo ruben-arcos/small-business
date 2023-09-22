@@ -8,15 +8,25 @@ import store from "./redux/store";
 
 function App() {
   return (
-    <Provider store={store}>
       <div className="App">
-        <BrowserRouter>
-          <Navigation />
-          <Router />
-        </BrowserRouter>
+        <header>
+          your react app is working
+        </header>
       </div>
-    </Provider>
   );
 }
+
+// function App() {
+//   return (
+//     <Provider store={store}>
+//       <div className="App">
+//         <BrowserRouter>
+//           <Navigation />
+//           <Router />
+//         </BrowserRouter>
+//       </div>
+//     </Provider>
+//   );
+// }
 
 export default App;
