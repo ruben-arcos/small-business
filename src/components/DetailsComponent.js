@@ -1,0 +1,16 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
+export default function DetailsContainer(props) {
+    const location = useLocation();
+
+    const taqueria = (props.taquerias.find(t => t.id === Number(location.state.id)))
+
+  console.log(taqueria);
+  return <div>
+
+<h2>{taqueria.name}</h2>
+<h3>{taqueria.address}</h3>
+<h3>{taqueria.hours}</h3>
+<p>{taqueria.description}</p>
+  </div>;
+}

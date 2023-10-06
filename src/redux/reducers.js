@@ -1,18 +1,23 @@
 import { combineReducers } from "redux";
 
-// const taquerias = (state = [], action) => {
-//     switch(action.type) {
-//         case 'CREATE_LISTING':
-//             return [...state, action.value]
+const taquerias = (state = [], action) => {
+    switch(action.type) {
+        case 'CREATE_LISTING':
+            return [...state, action.value]
 
-//         case 'DELETE_LISTING:'
-            
-//     }
-// }
+            // const cars = [ ...state ]
+            // cars.splice(action.value, 1)
+            // return cars 
 
-const taquerias = (state = []) => state
-const name = (state = []) => state
+        default:
+            return state
+       
+    }
+}
+
+// const taquerias = (state = []) => state
+const username = (state = []) => state
 
 
 
-export default combineReducers({taquerias, name})
+export default combineReducers({taquerias, username})

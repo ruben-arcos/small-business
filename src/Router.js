@@ -16,18 +16,18 @@ const checkAuth = () => {
 };
 
 // Write ProtectedRoute function here
-const ProtectedRoute = (props) => {
-  const { component: Component, ...rest } = props;
-  return checkAuth() === true ? <Component {...rest} /> : <Link to="/login" />;
-};
+// const ProtectedRoute = (props) => {
+//   const { component: Component, ...rest } = props;
+//   return checkAuth() === true ? <Component {...rest} /> : <Link to="/login" />;
+// };
 
 const Router = () => {
     return (
         <Routes>
-          <Route path="/" element={ListingContainer} />
-          <Route path="/details/:id" element={<DetailsContainer />} />
-          <Route path="/login" element={<LoginContainer />} />
-          <Route path="/add" element={<ProtectedRoute component={AddContainer} />} />
+          <Route path="/" element={<ListingContainer />} />
+          <Route path="/details/:name" element={<DetailsContainer />} />
+          {/* <Route path="/login" element={<LoginContainer />} /> */}
+          {/* <Route path="/add" element={<AddContainer />} /> */}
         </Routes>
       );
 }

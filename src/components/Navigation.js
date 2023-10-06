@@ -8,7 +8,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" sx={{backgroundColor: "green"}}>
       <Toolbar>
         <IconButton color="inherit">
           <MenuIcon />
@@ -18,6 +18,7 @@ const Navigation = () => {
         </Typography>
         <ul className="nav-list">
           <li className="nav-list-item">
+            {/* <Button variant="contained" component={Link} to="/cesar" >Listings</Button> */}
             <Link to="/">Listings</Link>
           </li>
           <li className="nav-list-item">

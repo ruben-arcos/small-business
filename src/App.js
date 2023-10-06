@@ -17,17 +17,4 @@ function App() {
   );
 }
 
-// function App() {
-//   return (
-//     <Provider store={store}>
-//       <div className="App">
-//         <BrowserRouter>
-//           <Navigation />
-//           <Router />
-//         </BrowserRouter>
-//       </div>
-//     </Provider>
-//   );
-// }
-
 export default App;
