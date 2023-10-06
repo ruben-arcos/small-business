@@ -10,22 +10,20 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import Chart from '../containers/Chart'
-// import Total from '../containers/Total'
-// import AddCar from '../containers/AddCar'
+import "../App.css";
 
 const Dashboard = (props) => {
   useEffect(() => {
     console.log(props);
   }, [props]);
   return (
-    <Container maxWidth="lg" className="car-container">
+    <Container maxWidth="lg">
       <h4>Welcome, Ruben</h4>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell className="businessName">Name</TableCell>
-            <TableCell>Description</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell sx={{ fontFamily: 'Didact Gothic'}}>Description</TableCell>
             <TableCell>Hours</TableCell>
             <TableCell>Address</TableCell>
             <TableCell>Delete</TableCell>

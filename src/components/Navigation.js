@@ -8,7 +8,7 @@ const Navigation = (props) => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="relative" sx={{backgroundColor: "green"}}>
+    <AppBar position="relative" sx={{background: "linear-gradient(25deg,#d64c7f,#ee4758 50%)"}}>
       <Toolbar>
         <IconButton color="inherit">
           <MenuIcon />
