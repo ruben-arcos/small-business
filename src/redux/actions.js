@@ -19,7 +19,7 @@ export const logInUser = (username) => {
     };
   };
   
-  export const createListing = (listing) => {
+  export const addListing = (listing) => {
     return {
       type: "CREATE_LISTING",
       value: listing,

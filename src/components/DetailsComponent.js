@@ -12,5 +12,15 @@ export default function DetailsContainer(props) {
 <h3>{taqueria.address}</h3>
 <h3>{taqueria.hours}</h3>
 <p>{taqueria.description}</p>
+<iframe title="map"
+  width="600"
+  height="450"
+  style={{border:0}}
+  loading="lazy"
+  allowFullScreen
+  referrerPolicy="no-referrer-when-downgrade"
+  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}
+    &q=${taqueria.name}+${taqueria.address}`}>
+</iframe>
   </div>;
 }

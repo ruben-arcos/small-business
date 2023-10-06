@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
-import AddComponent from '../components/AddCar'
-import { addComponent } from '../redux/actions'
+import AddComponent from '../components/AddComponent'
+import { addListing } from '../redux/actions'
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addComponent: (addComponent) => dispatch(addCar(AddComponent))
+        addListing: (listing) => dispatch(addListing(listing))
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddCar)
+export default connect(null, mapDispatchToProps)(AddComponent)

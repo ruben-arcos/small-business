@@ -1,105 +1,88 @@
-import React, { Component, Fragment } from 'react'
-import {
-    Button,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogTitle
-} from '@mui/material'
+import React, { useState } from "react";
+import { Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router";
 
-class AddComponent extends Component {
-    state = {
-        open: false,
-        name: '',
-        mpg: '',
-        cylinders: '',
-        horsepower: '',
-    }
+const AddComponent = (props) => {
+  const navigate = useNavigate();
+  const [listing, setListing] = useState({
+    name: "",
+    address: "",
+    hours: "",
+    description: "",
+  });
 
-    toggleDialog = () => this.setState({ open: !this.state.open })
+  const handleTextChange = (e) => {
+    const { id, value } = e.target;
+    console.log(e.target);
+    setListing({
+      ...listing,
+      [id]: value,
+    });
+  };
 
-    handleTextChange = (e) => {
-        const newState = { ...this.state }
-        newState[e.target.id] = e.target.value
-        this.setState(newState)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        const payload = { ...this.state }
-        payload.id = this.props.carTotal + 1
-        delete payload.open
-        console.log("THE CAR", payload)
-        // add this.props.addCar function here
-        // also add this.setState to close the dialog
-        this.props.addCar(payload)
-        this.setState({ open: false })
-    }
+    props.addListing({
+        id: Date.now(),
+        ...listing
+    });
+    navigate("/");
+  };
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.open !== this.state.open) {
-            this.setState({
-                name: '',
-                mpg: '',
-                cylinders: '',
-                horsepower: ''
-            })
-        }
-    }
+  return (
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "column", width: "350px" }}
+      >
+        <TextField
+          id="name"
+          placeholder="Name"
+          value={listing.name}
+          onChange={handleTextChange}
+          required
+        />
+        <TextField
+          id="address"
+          placeholder="Address"
+          value={listing.address}
+          onChange={handleTextChange}
+          required
+        />
+        <TextField
+          id="hours"
+          placeholder="Hours"
+          value={listing.hours}
+          onChange={handleTextChange}
+          required
+        />
+        <TextField
+          id="description"
+          placeholder="Description"
+          value={listing.description}
+          onChange={handleTextChange}
+          required
+        />
+        <br />
+        <Button variant="contained" color="primary" type="submit">
+          Submit
+        </Button>
+      </form>
 
-    render() {
-        return (
-            <Fragment>
-                <div style={{ textAlign: 'center' }}>
-                    <h1>Add Listing:</h1>
-                    <Button
-                        variant="contained"
-                        className="add-car"
-                        onClick={this.toggleDialog}
-                    >
-                        Add Listing
-                    </Button>
-                </div>
-                <div>
-                    <Dialog open={this.state.open} onClose={this.toggleDialog} >
-                        <DialogTitle>Add New Listing</DialogTitle>
-                        <DialogContent>
-                            <form 
-                                onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
-                                <TextField 
-                                    id="name" 
-                                    placeholder="Name" 
-                                    value={this.state.name} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="mpg" 
-                                    placeholder="Miles per gallon" 
-                                    value={this.state.mpg} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="cylinders" 
-                                    placeholder="Cylinders" 
-                                    value={this.state.cylinders} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="horsepower" 
-                                    placeholder="Horsepower" 
-                                    value={this.state.horsepower} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <br />
-                                <Button variant="contained" color="primary" type="submit">Submit</Button>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
-                </div>
-            </Fragment>
-        )
-    }
-}
+      <iframe
+        title="map"
+        width="600"
+        height="450"
+        style={{ border: 0 }}
+        loading="lazy"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}
+    &q=${listing.name}+${listing.address}`}
+      ></iframe>
+    </div>
+  );
+};
 
-export default AddComponent
+export default AddComponent;

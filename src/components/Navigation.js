@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton, Typography } from "@mui/material";
 import cookie from "cookie";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const Navigation = () => {
+const Navigation = (props) => {
   const navigate = useNavigate();
 
   return (
@@ -13,8 +13,8 @@ const Navigation = () => {
         <IconButton color="inherit">
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" style={{ flexGrow: "1" }}>
-          TacosFinder
+        <Typography  variant="h6" style={{ flexGrow: "1" }}>
+         <Link className="logo" to="/">tacosFinder</Link> 
         </Typography>
         <ul className="nav-list">
           <li className="nav-list-item">
@@ -22,7 +22,7 @@ const Navigation = () => {
             <Link to="/">Listings</Link>
           </li>
           <li className="nav-list-item">
-            <Link to="/about">Add</Link>
+            <Link to="/add">Add</Link>
           </li>
           <li
             className="nav-list-item"
@@ -33,7 +33,7 @@ const Navigation = () => {
               navigate("/login");
             }}
           >
-            {document.cookie === '' ? null : "Logout"}
+            {props.username ? "Logout" : <Link to="/login">Login</Link>}
           </li>
         </ul>
       </Toolbar>

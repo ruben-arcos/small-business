@@ -5,6 +5,7 @@ const taquerias = (state = [], action) => {
         case 'CREATE_LISTING':
             return [...state, action.value]
 
+            
             // const cars = [ ...state ]
             // cars.splice(action.value, 1)
             // return cars 

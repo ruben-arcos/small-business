@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+.logo {
+  font-family: comfortaa;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -42,12 +46,11 @@
   display: flex;
 }
 
-.nav-list-item {
+.nav-list-item a {
   margin: auto 20px;
+  color: white;
 }
 
 a {
   text-decoration: none;
-  color: white;
 }
-

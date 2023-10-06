@@ -24,7 +24,7 @@ const Dashboard = (props) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
+            <TableCell className="businessName">Name</TableCell>
             <TableCell>Description</TableCell>
             <TableCell>Hours</TableCell>
             <TableCell>Address</TableCell>

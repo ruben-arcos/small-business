@@ -5,7 +5,7 @@ import ListingContainer from "./containers/ListingContainer";
 import DetailsContainer from "./containers/DetailsContainer";
 import LoginContainer from "./containers/LoginContainer";
 import NavigationContainer from "./containers/NavigationContainer";
-import AddContainer from "./containers/NavigationContainer";
+import AddContainer from "./containers/AddContainer";
 import {Link} from 'react-router-dom'
 
 // Write checkAuth function here
@@ -27,7 +27,7 @@ const Router = () => {
           <Route path="/" element={<ListingContainer />} />
           <Route path="/details/:name" element={<DetailsContainer />} />
           {/* <Route path="/login" element={<LoginContainer />} /> */}
-          {/* <Route path="/add" element={<AddContainer />} /> */}
+          <Route path="/add" element={<AddContainer />} />
         </Routes>
       );
 }
