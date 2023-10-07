@@ -5,10 +5,10 @@ const taquerias = (state = [], action) => {
         case 'CREATE_LISTING':
             return [...state, action.value]
 
-            
-            // const cars = [ ...state ]
-            // cars.splice(action.value, 1)
-            // return cars 
+            case 'REMOVE_TAQUERIA':
+            const taqueria = [ ...state ]
+            taqueria.splice(action.value, 1)
+            return taqueria
 
         default:
             return state
@@ -17,7 +17,20 @@ const taquerias = (state = [], action) => {
 }
 
 // const taquerias = (state = []) => state
-const username = (state = []) => state
+const username = (state = [], action) => {
+    switch(action.type) {
+        case 'LOG_IN_USER':
+            console.log(state, 'reducer')
+            return state = action.value
+        
+        case 'LOG_OUT_USER':
+            return state = ""
+
+
+        default:
+            return state;
+    }
+}
 
 
 

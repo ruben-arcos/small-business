@@ -4,9 +4,7 @@ import cookie from "cookie";
 import ListingContainer from "./containers/ListingContainer";
 import DetailsContainer from "./containers/DetailsContainer";
 import LoginContainer from "./containers/LoginContainer";
-import NavigationContainer from "./containers/NavigationContainer";
 import AddContainer from "./containers/AddContainer";
-import {Link} from 'react-router-dom'
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -26,7 +24,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<ListingContainer />} />
           <Route path="/details/:name" element={<DetailsContainer />} />
-          {/* <Route path="/login" element={<LoginContainer />} /> */}
+          <Route path="/login" element={<LoginContainer />} />
           <Route path="/add" element={<AddContainer />} />
         </Routes>
       );

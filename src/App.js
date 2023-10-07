@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./components/Navigation";
+import Navigation from "./containers/NavigationContainer";
 import "./App.css";
 import Router from "./Router";
 import { BrowserRouter } from "react-router-dom";

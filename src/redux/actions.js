@@ -8,13 +8,12 @@ export const logInUser = (username) => {
   export const logOutUser = () => {
     return {
       type: "LOG_OUT_USER",
-      value: "",
     };
   };
   
-  export const deleteListing = (index) => {
+  export const removeTaqueria = (index) => {
     return {
-      type: "DELETE_LISTING",
+      type: "REMOVE_TAQUERIA",
       value: index,
     };
   };

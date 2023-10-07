@@ -17,22 +17,27 @@ const Dashboard = (props) => {
     console.log(props);
   }, [props]);
   return (
-    <Container maxWidth="lg">
-      <h4>Welcome, Ruben</h4>
-      <Table>
+    <Container className="tableContainer" maxWidth="lg">
+      {props.username && (
+        <h4>Welcome {props.username}</h4>
+      )}
+      
+      <Table className="tableContainer">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
+            <TableCell className="name">Name</TableCell>
             <TableCell sx={{ fontFamily: 'Didact Gothic'}}>Description</TableCell>
             <TableCell>Hours</TableCell>
             <TableCell>Address</TableCell>
-            <TableCell>Delete</TableCell>
+            {props.username && (
+               <TableCell>Delete</TableCell>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
           {props.taquerias.map((taqueria, idx) => (
             <TableRow key={taqueria.id}>
-              <TableCell component="th" scope="row">
+              <TableCell scope="row">
                 <Link to={`/details/${taqueria.name.split(" ").join("-").toLowerCase()}`} state={{id: taqueria.id}} >
                   {taqueria.name}
                 </Link>
@@ -40,13 +45,16 @@ const Dashboard = (props) => {
               <TableCell>{taqueria.description}</TableCell>
               <TableCell>{taqueria.hours}</TableCell>
               <TableCell>{taqueria.address}</TableCell>
-              <TableCell>
-                <DeleteIcon
-                  // add onClick method here
-                  onClick={() => props.removeTaqueria(idx)}
-                  className="icon text-red"
-                />
-              </TableCell>
+              {props.username && (
+                  <TableCell>
+                  <DeleteIcon
+                    // add onClick method here
+                    onClick={() => props.removeTaqueria(idx)}
+                    className="icon text-red"
+                  />
+                </TableCell>
+              )}
+            
             </TableRow>
           ))}
         </TableBody>

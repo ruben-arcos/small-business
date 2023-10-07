@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Container } from "@mui/material";
+import { TextField, Button, Stack } from "@mui/material";
 
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate();
+
+  console.log(props, 'login component props')
 
   const [state, setState] = useState({
     username: "",
@@ -23,20 +25,27 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
 
+    props.logInUser(state.username)
     // check db and verify uname and pwd hash
     // if true, generate the siged token
-    // set cookie here only if I have signed on 
+    // set cookie here only if I have signed on
     // set loggedIn = true and max-age = 60*1000 (one minute)
 
-    document.cookie = "loggedIn=ture;max-age=60*1000"
+    document.cookie = "loggedIn=true;max-age=60*1000";
 
     navigate("/");
   };
 
   return (
     <div className="App">
-      <Container maxWidth="sm">
-        <form className="login-form" onSubmit={login}>
+     
+        <Stack
+          gap={2}
+          margin={0}
+          sx={{ width: "100%", height: "100%" }}
+          component={"form"}
+          onSubmit={login}
+        >
           <TextField
             required
             onChange={handleTextChange}
@@ -61,8 +70,7 @@ const Login = () => {
           >
             Login
           </Button>
-        </form>
-      </Container>
+        </Stack>
     </div>
   );
 };

@@ -57,3 +57,10 @@ a {
   text-decoration: none;
 }
 
+th, td {
+  font-family: cursive !important;
+}
+
+/* .tableContainer tbody td {
+  font-family: cursive !important;
+} */
