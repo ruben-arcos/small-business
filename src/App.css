@@ -58,9 +58,29 @@ a {
 }
 
 th, td {
-  font-family: cursive !important;
+  font-family: 'Didact Gothic', sans-serif !important;
 }
 
-/* .tableContainer tbody td {
-  font-family: cursive !important;
-} */
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.detailsInfoContainer {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.mapContainer {
+  text-align: center;
+  width: 50%;
+}
+
+.descriptionText {
+  width: 50%;
+  margin: 0 auto;
+}
